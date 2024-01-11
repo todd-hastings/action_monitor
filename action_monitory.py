@@ -1,3 +1,18 @@
+import argparse                                                                                                   
+import datetime            
+import psutil 
+import pytz
+                                                         
+                                                                                                                  
+def create_hoc_make_action_string(source, action, host, start, end, result):
+    #run_pyscript ~/randori-private/repos/scripts/action.py -r hoc_operator_activity -a mitre_reconnaissance -s "2024-01-09T14:03:00-05:00" -e "2024-01-09T15:33:00-05:00" -i 44.229.195.69 -t release.api.eqr.beemit.com.au -o success                                                      
+                            
+    actions = ['mitre_Collection', 'mitre_Command_and_Control', 'mitre_Credential_Access', 'mitre_Defense_Evasion'
+, 'mitre_Discovery', 'mitre_Execution', 'mitre_Exfiltration', 'mitre_Impact', 'mitre_Initial_Access', 'mitre_Later
+al_Movement', 'mitre_Persistence', 'mitre_Privilege_Escalation', 'mitre_Reconnaissance', 'mitre_Resource_Development']
+                                                         
+    return f"run_pyscript ~/randori-private/repos/scripts/action.py -r hoc_operator_activity -a mitre_reconnaissance -s \"{start}-00:00\" -e \"{end}-00:00\" -i {source} -t {host} -o {result}"
+
 if __name__ == "__main__":
 
     actions = ['mitre_Collection', 'mitre_Command_and_Control', 'mitre_Credential_Access', 'mitre_Defense_Evasion', 'mitre_Discovery', 'mitre_Execution', 'mitre_Exfiltration', 'mitre_Impact', 'mitre_Initial_Access', 'mitre_Lateral_Movement', 'mitre_Persistence', 'mitre_Privilege_Escalation', 'mitre_Reconnaissance', 'mitre_Resource_Development']
