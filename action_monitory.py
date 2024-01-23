@@ -1,7 +1,6 @@
 import argparse                                                                                                   
 import datetime            
 import psutil 
-import pytz
                                                          
                                                                                                                   
 def create_hoc_make_action_string(source, action, host, start, end, result):
